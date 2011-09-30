@@ -1,0 +1,99 @@
+/*
+TODO union divisions by 12 and 16 to 24, cause it have many similar divisions
+and allows to tune 12-grid columns more discrete.
+But for design we can use any of these dimensions
+maybe just rewrite some rules:
+.w3-12, .w-4-16, .w6-24{ width: 25% }
+ */
+.columns .c1-12, .columns .c2-12, .columns .c3-12, .columns .c4-12,
+.columns .c5-12, .columns .c6-12, .columns .c7-12, .columns .c8-12,
+.columns .c9-12, .columns .c10-12, .columns .c11-12 {
+	display:inline;
+	float: left;
+	position: relative;
+}
+
+.columns .c1-12  {width:8.3333%}
+.columns .c2-12  {width:16.6666%}
+.columns .c3-12  {width:25%}
+.columns .c4-12  {width:33.3333%}
+.columns .c5-12  {width:41.6666%}
+.columns .c6-12  {width:50%}
+.columns .c7-12  {width:58.3333%}
+.columns .c8-12  {width:66.6666%}
+.columns .c9-12  {width:75%}
+.columns .c10-12 {width:83.3333%}
+.columns .c11-12 {width:91.6666%}
+
+.columns .prefix-1-12  {padding-left:8.3333%}
+.columns .prefix-2-12  {padding-left:16.6666%}
+.columns .prefix-3-12  {padding-left:25%}
+.columns .prefix-4-12  {padding-left:33.3333%}
+.columns .prefix-5-12  {padding-left:41.6666%}
+.columns .prefix-6-12  {padding-left:50%}
+.columns .prefix-7-12  {padding-left:58.3333%}
+.columns .prefix-8-12  {padding-left:66.6666%}
+.columns .prefix-9-12  {padding-left:75%}
+.columns .prefix-10-12 {padding-left:83.3333%}
+.columns .prefix-11-12 {padding-left:91.6666%}
+
+.columns .suffix-1-12  {padding-right:8.3333%}
+.columns .suffix-2-12  {padding-right:16.6666%}
+.columns .suffix-3-12  {padding-right:25%}
+.columns .suffix-4-12  {padding-right:33.3333%}
+.columns .suffix-5-12  {padding-right:41.6666%}
+.columns .suffix-6-12  {padding-right:50%}
+.columns .suffix-7-12  {padding-right:58.3333%}
+.columns .suffix-8-12  {padding-right:66.6666%}
+.columns .suffix-9-12  {padding-right:75%}
+.columns .suffix-10-12 {padding-right:83.3333%}
+.columns .suffix-11-12 {padding-right:91.6666%}
+
+.columns .push-1-12  {left:8.3333%}
+.columns .push-2-12  {left:16.6666%}
+.columns .push-3-12  {left:25%}
+.columns .push-4-12  {left:33.3333%}
+.columns .push-5-12  {left:41.6666%}
+.columns .push-6-12  {left:50%}
+.columns .push-7-12  {left:58.3333%}
+.columns .push-8-12  {left:66.6666%}
+.columns .push-9-12  {left:75%}
+.columns .push-10-12 {left:83.3333%}
+.columns .push-11-12 {left:91.6666%}
+
+.columns .pull-1-12  {left:-8.3333%}
+.columns .pull-2-12  {left:-16.6666%}
+.columns .pull-3-12  {left:-25%}
+.columns .pull-4-12  {left:-33.3333%}
+.columns .pull-5-12  {left:-41.6666%}
+.columns .pull-6-12  {left:-50%}
+.columns .pull-7-12  {left:-58.3333%}
+.columns .pull-8-12  {left:-66.6666%}
+.columns .pull-9-12  {left:-75%}
+.columns .pull-10-12 {left:-83.3333%}
+.columns .pull-11-12 {left:-91.6666%}
+
+/* todo подобрать оптимальные границы для всех ширин*/
+@media only screen and (max-width: 768px){
+	.columns > .c1-12, .columns > .c2-12, .columns > .c3-12, .columns > .c4-12,
+	.columns > .c5-12, .columns > .c6-12 {
+		display:block;
+		float: none;
+		width: auto;
+		clear: both;
+		padding-bottom: 5px;
+		position: static !important;
+	}
+}
+
+@media only screen and (max-width: 480px){
+	.columns > .c7-12, .columns > .c8-12,
+	.columns > .c9-12, .columns > .c10-12, .columns > .c11-12 {
+		display:block;
+		float: none;
+		width: auto;
+		clear: both;
+		padding-bottom: 5px;
+		position: static !important;
+	}
+}

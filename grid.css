@@ -1,0 +1,527 @@
+/**
+ * 3dots fluid grid
+ * @version 1.0 alpha
+*/
+
+/* TODO explore http://meyerweb.com/eric/tools/css/reset/ */
+a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,caption,center,cite,code,dd,del,details,dfn,dialog,div,dl,dt,em,embed,fieldset,figcaption,figure,font,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,hr,html,i,iframe,img,ins,kbd,label,legend,li,mark,menu,meter,nav,object,ol,output,p,pre,progress,q,rp,rt,ruby,s,samp,section,small,span,strike,strong,sub,summary,sup,table,tbody,td,tfoot,th,thead,time,tr,tt,u,ul,var,video,xmp{border:0;font-size:100%;margin:0;padding:0}
+html,body{height:100%}
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}
+b,strong{font-weight:bold}
+img{font-size:0;vertical-align:middle;-ms-interpolation-mode:bicubic}
+li{display:list-item} table{border-collapse:collapse;border-spacing:0}
+th,td,caption{font-weight:normal;vertical-align:top;text-align:left} svg{overflow:hidden}
+
+/* Globals */
+body{
+	//text-align:center;
+	font: 14px/1.3 arial, helvetica, sans-serif;
+	color: #333;
+}
+a, a:visited{
+	color: #008AE7;
+}
+
+a.external{
+	background: url(images/link-ext.png) 100% 5px no-repeat;
+	padding-right: 13px;
+	margin-right: .6em;
+}
+
+img.fluid{
+	max-width: 100%;
+	_width: 100%;
+}
+
+/* Font-n-typo */
+h1,h2,h3,h4,h5,h6{
+	line-height: 105%;
+	font-weight: normal;
+	padding-bottom: .3em;
+}
+h1 a,h2 a,h3 a,h4 a,h5 a,h6 a{
+	text-decoration: none;
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
+	border-bottom-color: #008AE7;
+	line-height: 120%;
+}
+/* TODO rewrite paddings, only bottoms */
+h1{font-size: 29px;}
+h2{font-size: 21px;
+	padding: .5em 0 .3em;
+	line-height: 105%;
+}
+h3{
+	font-size: 19px;
+	padding: 0 0 .5em;
+}
+h4{
+	font-size: 17px;
+	padding: 0 0 .5em;
+}
+
+p{padding: 0 0 1em;}
+p.f-L, p.f-XL, p.f-XXL{padding: 0 0 .3em;}
+
+ul{
+	padding: 0 0 0.5em 1em;
+}
+ul li{
+	padding: 0 0 0.5em;
+}
+
+ins{
+	display: inline-block;
+	//display: inline;
+	background: #333;
+	color: #fff;
+	padding: .2em .4em .3em;
+	text-decoration: none;
+}
+ins.last{
+	padding-top: .1em;
+	/*padding-bottom: .3em;*/
+	position: relative;
+	top: -.4em;
+	//top: -.15em;
+}
+
+/* Headings sizing, without applying head tags */
+.f-1{font-size: 29px;}
+.f-2{font-size: 21px;}
+.f-3{font-size: 19px;}
+.f-4{font-size: 17px;}
+
+/*
+TODO find out universal sequence of sizes, including XXS ... XXXL
+it must be between headings sizes, or cover ALL sizes of this sequence:
+XS	S	*	M	L	XL	XXL	XXXL	?		?		?
+9	11	14	15	17	19	21	24		27		29		36
+*/
+.f-XS{font-size: 10px}
+.f-S{font-size: 12px}
+.f-M{font-size: 17px; line-height: 125%}
+.f-L{font-size: 21px; line-height: 115%}
+.f-XL{font-size: 27px; line-height: 115%}
+.f-XXL{font-size: 36px; line-height: 112%}
+
+.f-light{color: #777}
+.f-inverse{color: #fff}
+.f-i{font-style: italic;}
+
+.t-center{text-align: center;}
+.t-right{text-align: right;}
+.t-left{text-align: left;}
+
+/* Navigation */
+ul.menu{
+	padding: 0;
+}
+ul.menu li{
+	list-style-type: none;
+	line-height: 130%;
+}
+ul.menu li.clear{
+	display: block !important;
+	float : none !important;
+	padding: 0;
+}
+
+ul.menu-horizontal{
+	margin-left: -.4em;
+}
+ul.menu-horizontal li{
+	display: inline;
+	margin-right: .3em;
+}
+ul.menu-horizontal li a{
+	text-decoration: none;
+	display: inline-block;
+	padding: .2em .5em .25em;
+	vertical-align: top;
+}
+/* TODO move paddings and bg to A tag, SPAN can have border-bottom */
+ul.menu-horizontal li span{
+	vertical-align: top;
+}
+
+/* todo Breadcrumbs */
+
+
+/* Sprite icons */
+/* TODO explore http://habrahabr.ru/blogs/css/122920/ */
+a.i16,
+i.i16{
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+	background-image:url("images/sprites.png");
+	background-repeat: no-repeat;
+	font-style: normal;
+	font-size: 0;
+	line-height: 0
+}
+i.i32{
+	display: inline-block;
+	width: 32px;
+	height: 32px;
+	background-image:url("images/sprites.png");
+	background-repeat: no-repeat;
+	font-style: normal;
+	font-size: 0;
+	line-height: 0
+}
+i.iXXL{
+	display: inline-block;
+	width: 32px;
+	height: 32px;
+	background-image:url("images/sprites.png");
+	background-repeat: no-repeat;
+	font-style: normal;
+	font-size: 0;
+	line-height: 0;
+}
+
+i.i16.close{background-position:-20px 0}
+i.i16.close:hover{background-position:3px 3px}
+i.i16.home{background-position:0 -16px}
+i.i16.collapse{background-position:-40px -11px}
+i.i16.print{background-position:-100px -40px}
+i.i16.minus{background-position:-40px -10px}
+i.i16.plus{background-position:-80px 5px}
+i.i16.dash{background-position:-80px -10px}
+.closed .i16.collapse{background-position:-60px -15px}
+i.i16.lock{background-position: -180px -20px}
+i.i16.flag{background-position: -140px -20px}
+i.i16.flag-white{background-position: -140px -80px}
+i.i16.check{background-position: -140px -60px}
+i.i16.card{background-position: -160px -60px}
+
+i.i16.file-doc{background-position: -160px 0; width: 20px; height: 20px}
+i.i16.file-pdf{background-position: -140px 0; width: 20px; height: 20px}
+i.i16.file-zip{background-position: -260px 0; width: 20px; height: 20px}
+i.i16.file-png{background-position: -240px 0; width: 20px; height: 20px}
+i.i16.file-xls{background-position: -220px 0; width: 20px; height: 20px}
+i.i16.heart{background-position: -162px -20px;}
+
+i.i32.rss{background-position:-240px -40px;height:14px}
+i.i32.arrow-left{background-position: -140px -40px}
+i.i32.arrow-right{background-position: -180px -40px}
+i.i32.helper{background-position: -100px -60px}
+i.i32.services{background-position: -140px -60px}
+i.i32.map{background-position: -180px -60px}
+
+i.iXXL.callback{background-position: -60px -140px;width: 57px;height: 60px;}
+i.iXXL.file{background-position:-240px 0; width: 20px;height: 45px; margin-right: 5px}
+i.iXXL.file-pdf{background-position:-100px 0; width: 38px;height: 43px; margin-right: 5px}
+i.iXXL.success{background-position:0 -40px;width:95px;height: 98px}
+i.iXXL.error{background-position:0 -40px;width:95px;height:105px}
+
+/* Forms */
+.required{
+	color: #F44D76;
+	font-weight: normal;
+}
+#cboxContent form{
+	 margin: 0 10px 0 5px;
+}
+#cboxContent .f-control{
+
+}
+form h2{
+	padding: 1em 0 .8em;
+}
+.f-field{
+	clear: both;
+	padding: 0 0 .8em;
+}
+.f-field .label{
+	display: inline-block;
+	width: 33%;
+	vertical-align: top;
+}
+.f-field .label label{
+	margin-right: 20px;
+}
+
+.f-field .f-control{
+	display: inline-block;
+	width: 60%;
+	clear: right;
+	vertical-align: top;
+}
+
+.f-control .title{
+	display: block;
+	line-height: 125%;
+	font-style: italic;
+	font-size: 11px;
+	color: #777;
+}
+
+a.button{
+	outline: none;
+	display: inline-block;
+	text-decoration: none;
+	border-radius: 1em;
+	-moz-border-radius: 1em;
+	-webkit-border-radius: 1em;
+	border: 1px solid #A67710;
+	background: #ffd170;
+	background: -moz-linear-gradient(top, #ffd170 8%, #dfa017 83%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(8%,#ffd170), color-stop(83%,#dfa017));
+	background: -webkit-linear-gradient(top, #ffd170 8%,#dfa017 83%);
+	background: -o-linear-gradient(top, #ffd170 8%,#dfa017 83%);
+	background: -ms-linear-gradient(top, #ffd170 8%,#dfa017 83%);
+	-pie-background: linear-gradient(#ffd170,#dfa017);
+	-webkit-box-shadow: #bfa682 0 1px 5px;
+	-moz-box-shadow: #bfa682 0 1px 5px;
+	box-shadow: #bfa682 0 1px 5px;
+	text-shadow: #A67710 0 -1px 1px;
+	behavior: url('/css/PIE.htc');
+	margin-bottom: 5px;
+	cursor: pointer;
+}
+a.button span{
+	display: inline-block;
+	color: #fff !important;
+	font-weight: bold;
+	text-decoration: none;
+	padding: .2em 1em .35em;
+	border-radius: .95em;
+	-moz-border-radius: .95em;
+	-webkit-border-radius: .95em;
+	border-left: none !important;
+	border-right: none !important;
+	border-bottom: none !important;
+	border-top: 1px solid #ffdd96;
+	margin-bottom: -1px;
+	behavior: url('/css/PIE.htc');
+}
+a.button:hover{
+	background: #dfa017;
+	-pie-background: #dfa017;
+}
+a.button:hover span{
+	border-top: 1px solid #edbb4f;
+}
+
+a.button-green{
+	border: 1px solid #5F7B08;
+	background: #9ec32a;
+	background: -moz-linear-gradient(top, #9ec32a 0%, #81a60d 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#9ec32a), color-stop(100%,#81a60d));
+	background: -webkit-linear-gradient(top, #9ec32a 0%,#81a60d 100%);
+	background: -o-linear-gradient(top, #9ec32a 0%,#81a60d 100%);
+	background: -ms-linear-gradient(top, #9ec32a 0%,#81a60d 100%);
+	-pie-background: linear-gradient(top, #9ec32a 0%,#81a60d 100%);
+	background: linear-gradient(top, #9ec32a 0%,#81a60d 100%);
+	text-shadow: #7D9C1C 0 -1px 1px;
+	-webkit-box-shadow: #B2CF55 0 1px 5px;
+	-moz-box-shadow: #B2CF55 0 1px 5px;
+	box-shadow: #b3ba95 0 1px 5px;
+}
+a.button-green:hover{
+	background: #6d9100;
+	-pie-background: #6d9100;
+}
+a.button-green span{
+	border-top: 1px solid #b3ba95;
+	border-top: 1px solid #B2CF55;
+}
+a.button-green:hover span{
+	border-top: 1px solid #8fb026;
+}
+
+/* Columns + clearfix */
+/* TODO shorten class name for css shrinking */
+/* TODO make columns-in-columns container, for background assembling */
+.columns {}
+/* http://goo.gl/z8yiK */
+.columns:after {
+	clear: both;
+	content: ' ';
+	display: block;
+	font-size: 0;
+	line-height: 0;
+	visibility: hidden;
+	width: 0;
+	height: 0;
+}
+.columns { display: inline-block; }
+* html .columns { height: 1%; }
+.columns { display: block; }
+
+/* TODO shorten gutter class name for economical markup,
+	or use .columns > div > div
+	or .c > span
+
+	TODO gutter can be used not only with columns, take out of .columns context
+*/
+.columns .gutter{margin-left: 10px; margin-right: 10px}
+.columns .first{}
+.columns .last{clear: right /* IE6-7 */}
+.columns .last .gutter{margin-right: 0}
+.columns .first .gutter{margin-left: 0}
+
+/* Fitting last column to right border */
+.columns .last.stretch-right{
+	overflow: hidden;
+	overflow-x: hidden;
+	overflow-y: visible;
+}
+.columns .last.stretch-right .gutter{
+	margin-right: -5px; padding-left: 5px;
+}
+
+/* Clearing paddings, for example, for particular paragraphs and heads */
+.prefix-0{padding-left: 0;}
+.suffix-0{padding-right: 0;}
+.prefix-y-0{padding-top: 0;}
+.suffix-y-0{padding-bottom: 0;}
+
+/* Vertical paddings, in fixed grid interval */
+/* TODO change vertical intervals from font-sizes (1/2/3 em) to line-heights (1.3/2.6/3.9 em) */
+/* TODO vertical pulls and change names like .y-1 .y--2 */
+.prefix-y-05{padding-top: .5em !important;}
+.prefix-y-1{padding-top: 1em !important;}
+.prefix-y-15{padding-top: 1.5em !important;}
+.prefix-y-2{padding-top: 2em !important;}
+.prefix-y-25{padding-top: 2.5em !important;}
+.prefix-y-3{padding-top: 3em !important;}
+.prefix-y-35{padding-top: 3.5em !important;}
+.prefix-y-4{padding-top: 4em !important;}
+
+.suffix-y-05{padding-bottom: .5em !important;}
+.suffix-y-1{padding-bottom: 1em !important;}
+.suffix-y-15{padding-bottom: 1.5em !important;}
+.suffix-y-2{padding-bottom: 2em !important;}
+.suffix-y-25{padding-bottom: 2.5em !important;}
+.suffix-y-3{padding-bottom: 3em !important;}
+.suffix-y-35{padding-bottom: 3.5em !important;}
+.suffix-y-4{padding-bottom: 4em !important;}
+
+.y--1{margin-top: -1em;}
+.y--2{margin-top: -2em;}
+.y--3{margin-top: -3em;}
+
+
+/* TODO change cNN to wNN, expanding to any x-sizeable element, not just cols */
+/* TODO ? remove context .columns, add class .c instead */
+
+/*
+TODO list-item entity (example: photo in gallery, visit card in list)
+.list .item {display:inline-block; vertical-align: top; float:none; clear: none;}
+compensation of gutters between items
+.list-gutters .item{margin-right:20px} // .gutter * 2
+.list-gutters{margin-left:-20px}
+
+NO floats, variable item height
+
+.list.list-photo
+	span.item.w25 {span.photo + h3>a}
+	span.item.w25 {span.photo + h3>a}
+	span.item.w25 {span.photo + h3>a}
+	span.item.w25 {span.photo + h3>a}
+	span.item.w25 {span.photo + h3>a}
+*/
+.columns .c5, .columns .c10, .columns .c15,
+.columns .c20, .columns .c25, .columns .c30, .columns .c35,
+.columns .c40, .columns .c45, .columns .c50, .columns .c55,
+.columns .c60, .columns .c65, .columns .c70, .columns .c75,
+.columns .c80, .columns .c85, .columns .c90, .columns .c95, .columns .c100 {
+	display:inline;
+	float: left;
+	position: relative;
+}
+
+.columns .c5   {width:5%}  .columns .c10  {width:10%} .columns .c15  {width:15%}
+.columns .c20  {width:20%} .columns .c25  {width:25%} .columns .c30  {width:30%}
+.columns .c35  {width:35%} .columns .c40  {width:40%} .columns .c45  {width:45%}
+.columns .c50  {width:50%} .columns .c55  {width:55%} .columns .c60  {width:60%}
+.columns .c65  {width:65%} .columns .c70  {width:70%} .columns .c75  {width:75%}
+.columns .c80  {width:80%} .columns .c85  {width:85%} .columns .c90  {width:90%}
+.columns .c95  {width:95%} .columns .c100 {width:100%}
+
+/*
+TODO change names:
+prefix-N = pre-N
+suffix-N = post-N
+or something like
+*/
+.columns .prefix-5  {padding-left:5%;}  .columns .prefix-10 {padding-left:10%;}
+.columns .prefix-15 {padding-left:15%;} .columns .prefix-20 {padding-left:20%;}
+.columns .prefix-25 {padding-left:25%;} .columns .prefix-30 {padding-left:30%;}
+.columns .prefix-35 {padding-left:35%;} .columns .prefix-40 {padding-left:40%;}
+.columns .prefix-45 {padding-left:45%;} .columns .prefix-50 {padding-left:50%;}
+.columns .prefix-55 {padding-left:55%;} .columns .prefix-60 {padding-left:60%;}
+.columns .prefix-65 {padding-left:65%;} .columns .prefix-70 {padding-left:70%;}
+.columns .prefix-75 {padding-left:75%;} .columns .prefix-80 {padding-left:80%;}
+.columns .prefix-85 {padding-left:85%;} .columns .prefix-90 {padding-left:90%;}
+.columns .prefix-95 {padding-left:95%;}
+
+.columns .suffix-5  {padding-right:5%;}  .columns .suffix-10 {padding-right:10%;}
+.columns .suffix-15 {padding-right:15%;} .columns .suffix-20 {padding-right:20%;}
+.columns .suffix-25 {padding-right:25%;} .columns .suffix-30 {padding-right:30%;}
+.columns .suffix-35 {padding-right:35%;} .columns .suffix-40 {padding-right:40%;}
+.columns .suffix-45 {padding-right:45%;} .columns .suffix-50 {padding-right:50%;}
+.columns .suffix-55 {padding-right:55%;} .columns .suffix-60 {padding-right:60%;}
+.columns .suffix-65 {padding-right:65%;} .columns .suffix-70 {padding-right:70%;}
+.columns .suffix-75 {padding-right:75%;} .columns .suffix-80 {padding-right:80%;}
+.columns .suffix-85 {padding-right:85%;} .columns .suffix-90 {padding-right:90%;}
+.columns .suffix-95 {padding-right:95%;}
+
+/*
+TODO change names to:
+push-N = x-N
+pull-N = x--N
+*/
+.columns .push-5 {left:5%;}   .columns .push-10 {left:15%;} .columns .push-15 {left:15%;}
+.columns .push-20 {left:20%;} .columns .push-25 {left:25%;} .columns .push-30 {left:30%;}
+.columns .push-35 {left:35%;} .columns .push-40 {left:40%;} .columns .push-45 {left:45%;}
+.columns .push-50 {left:50%;} .columns .push-55 {left:55%;} .columns .push-60 {left:60%;}
+.columns .push-65 {left:65%;} .columns .push-70 {left:70%;} .columns .push-75 {left:75%;}
+.columns .push-80 {left:80%;} .columns .push-85 {left:85%;} .columns .push-90 {left:90%;}
+.columns .push-95 {left:95%;}
+
+.columns .pull-5 {left:-5%;}   .columns .pull-10 {left:-15%;} .columns .pull-15 {left:-15%;}
+.columns .pull-20 {left:-20%;} .columns .pull-25 {left:-25%;} .columns .pull-30 {left:-30%;}
+.columns .pull-35 {left:-35%;} .columns .pull-40 {left:-40%;} .columns .pull-45 {left:-45%;}
+.columns .pull-50 {left:-50%;} .columns .pull-55 {left:-55%;} .columns .pull-60 {left:-60%;}
+.columns .pull-65 {left:-65%;} .columns .pull-70 {left:-70%;} .columns .pull-75 {left:-75%;}
+.columns .pull-80 {left:-80%;} .columns .pull-85 {left:-85%;} .columns .pull-90 {left:-90%;}
+.columns .pull-95 {left:-95%;}
+
+.clear {clear: both;display: block;overflow: hidden;visibility: hidden;width: 0;height: 0;}
+
+/* todo find out optimal bounds for all column widths */
+@media only screen and (max-width: 768px){
+	.columns > div{
+		position: static !important;
+	}
+	.columns > .c5, .columns > .c10, .columns > .c15,
+	.columns > .c20, .columns >.c25, .columns > .c30, .columns > .c35,
+	.min-768 {
+		display:block !important;
+		float: none !important;
+		width: auto !important;
+		clear: both !important;
+		padding-bottom: 5px;
+	}
+	.columns .gutter{margin-left: 0;margin-right: 0;}
+}
+@media only screen and (max-width: 480px){
+	.columns > .c40, .columns > .c45, .columns >.c50, .columns > .c55,
+	.columns > .c60, .columns > .c65, .columns >.c70, .columns > .c75,
+	.columns > .c80, .columns > .c85, .columns >.c90, .columns > .c95, .columns > .c100,
+	.min-480 {
+		display:block !important;
+		float: none !important;
+		width: auto !important;
+		clear: both !important;
+		padding-bottom: 5px;
+	}
+}
+
+/* TODO max-width 320? */

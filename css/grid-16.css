@@ -1,110 +1,79 @@
-.columns .c1-16, .columns .c2-16, .columns .c3-16, .columns .c4-16,
-.columns .c5-16, .columns .c6-16, .columns .c7-16, .columns .c8-16,
-.columns .c9-16, .columns .c10-16, .columns .c11-16, .columns .c12-16,
-.columns .c13-16, .columns .c14-16, .columns .c15-16 {
-	display:inline;
-	float: left;
-	position: relative;
-}
+.w-1-16  {width:6.25%}
+.w-2-16  {width:12.5%}
+.w-3-16  {width:18.75%}
+.w-4-16  {width:25%}
+.w-5-16  {width:31.25%}
+.w-6-16  {width:37.5%}
+.w-7-16  {width:43.75%}
+.w-8-16  {width:50%}
+.w-9-16  {width:56.25%}
+.w-10-16 {width:62.5%}
+.w-11-16 {width:68.75%}
+.w-12-16 {width:75%}
+.w-13-16 {width:81.25%}
+.w-14-16 {width:87.5%}
+.w-15-16 {width:93.75%}
 
-.columns .c1-16  {width:6.25%}
-.columns .c2-16  {width:12.5%}
-.columns .c3-16  {width:18.75%}
-.columns .c4-16  {width:25%}
-.columns .c5-16  {width:31.25%}
-.columns .c6-16  {width:37.5%}
-.columns .c7-16  {width:43.75%}
-.columns .c8-16  {width:50%}
-.columns .c9-16  {width:56.25%}
-.columns .c10-16 {width:62.5%}
-.columns .c11-16 {width:68.75%}
-.columns .c12-16 {width:75%}
-.columns .c13-16 {width:81.25%}
-.columns .c14-16 {width:87.5%}
-.columns .c15-16 {width:93.75%}
+.pre-x-1-16  {padding-left:6.25%}
+.pre-x-2-16  {padding-left:12.5%}
+.pre-x-3-16  {padding-left:18.75%}
+.pre-x-4-16  {padding-left:25%}
+.pre-x-5-16  {padding-left:31.25%}
+.pre-x-6-16  {padding-left:37.5%}
+.pre-x-7-16  {padding-left:43.75%}
+.pre-x-8-16  {padding-left:50%}
+.pre-x-9-16  {padding-left:56.25%}
+.pre-x-10-16 {padding-left:62.5%}
+.pre-x-11-16 {padding-left:68.75%}
+.pre-x-12-16 {padding-left:75%}
+.pre-x-13-16 {padding-left:81.25%}
+.pre-x-14-16 {padding-left:87.5%}
+.pre-x-15-16 {padding-left:93.75%}
 
-.columns .prefix-1-16  {padding-left:6.25%}
-.columns .prefix-2-16  {padding-left:12.5%}
-.columns .prefix-3-16  {padding-left:18.75%}
-.columns .prefix-4-16  {padding-left:25%}
-.columns .prefix-5-16  {padding-left:31.25%}
-.columns .prefix-6-16  {padding-left:37.5%}
-.columns .prefix-7-16  {padding-left:43.75%}
-.columns .prefix-8-16  {padding-left:50%}
-.columns .prefix-9-16  {padding-left:56.25%}
-.columns .prefix-10-16 {padding-left:62.5%}
-.columns .prefix-11-16 {padding-left:68.75%}
-.columns .prefix-12-16 {padding-left:75%}
-.columns .prefix-13-16 {padding-left:81.25%}
-.columns .prefix-14-16 {padding-left:87.5%}
-.columns .prefix-15-16 {padding-left:93.75%}
+.post-x-1-16  {padding-right:6.25%}
+.post-x-2-16  {padding-right:12.5%}
+.post-x-3-16  {padding-right:18.75%}
+.post-x-4-16  {padding-right:25%}
+.post-x-5-16  {padding-right:31.25%}
+.post-x-6-16  {padding-right:37.5%}
+.post-x-7-16  {padding-right:43.75%}
+.post-x-8-16  {padding-right:50%}
+.post-x-9-16  {padding-right:56.25%}
+.post-x-10-16 {padding-right:62.5%}
+.post-x-11-16 {padding-right:68.75%}
+.post-x-12-16 {padding-right:75%}
+.post-x-13-16 {padding-right:81.25%}
+.post-x-14-16 {padding-right:87.5%}
+.post-x-15-16 {padding-right:93.75%}
 
-.columns .suffix-1-16  {padding-right:6.25%}
-.columns .suffix-2-16  {padding-right:12.5%}
-.columns .suffix-3-16  {padding-right:18.75%}
-.columns .suffix-4-16  {padding-right:25%}
-.columns .suffix-5-16  {padding-right:31.25%}
-.columns .suffix-6-16  {padding-right:37.5%}
-.columns .suffix-7-16  {padding-right:43.75%}
-.columns .suffix-8-16  {padding-right:50%}
-.columns .suffix-9-16  {padding-right:56.25%}
-.columns .suffix-10-16 {padding-right:62.5%}
-.columns .suffix-11-16 {padding-right:68.75%}
-.columns .suffix-12-16 {padding-right:75%}
-.columns .suffix-13-16 {padding-right:81.25%}
-.columns .suffix-14-16 {padding-right:87.5%}
-.columns .suffix-15-16 {padding-right:93.75%}
+.x-1-16  {left:6.25%}
+.x-2-16  {left:12.5%}
+.x-3-16  {left:18.75%}
+.x-4-16  {left:25%}
+.x-5-16  {left:31.25%}
+.x-6-16  {left:37.5%}
+.x-7-16  {left:43.75%}
+.x-8-16  {left:50%}
+.x-9-16  {left:56.25%}
+.x-10-16 {left:62.5%}
+.x-11-16 {left:68.75%}
+.x-12-16 {left:75%}
+.x-13-16 {left:81.25%}
+.x-14-16 {left:87.5%}
+.x-15-16 {left:93.75%}
 
-.columns .push-1-16  {left:6.25%}
-.columns .push-2-16  {left:12.5%}
-.columns .push-3-16  {left:18.75%}
-.columns .push-4-16  {left:25%}
-.columns .push-5-16  {left:31.25%}
-.columns .push-6-16  {left:37.5%}
-.columns .push-7-16  {left:43.75%}
-.columns .push-8-16  {left:50%}
-.columns .push-9-16  {left:56.25%}
-.columns .push-10-16 {left:62.5%}
-.columns .push-11-16 {left:68.75%}
-.columns .push-12-16 {left:75%}
-.columns .push-13-16 {left:81.25%}
-.columns .push-14-16 {left:87.5%}
-.columns .push-15-16 {left:93.75%}
-
-.columns .pull-1-16  {left:-6.25%}
-.columns .pull-2-16  {left:-12.5%}
-.columns .pull-3-16  {left:-18.75%}
-.columns .pull-4-16  {left:-25%}
-.columns .pull-5-16  {left:-31.25%}
-.columns .pull-6-16  {left:-37.5%}
-.columns .pull-7-16  {left:-43.75%}
-.columns .pull-8-16  {left:-50%}
-.columns .pull-9-16  {left:-56.25%}
-.columns .pull-10-16 {left:-62.5%}
-.columns .pull-11-16 {left:-68.75%}
-.columns .pull-12-16 {left:-75%}
-.columns .pull-13-16 {left:-81.25%}
-.columns .pull-14-16 {left:-87.5%}
-.columns .pull-15-16 {left:-93.75%}
-
-/* todo подобрать оптимальные границы для всех ширин*/
-@media only screen and (max-width: 768px){
-	.columns .c1-16, .columns .c2-16, .columns .c3-16, .columns .c4-16 {
-		display:block;
-		float: none;
-		width: auto;
-		clear: both;
-		padding-bottom: 5px;
-	}
-}
-@media only screen and (max-width: 480px){
-	.columns .c5-16, .columns .c6-16, .columns .c7-16, .columns .c8-16,
-	.columns .c9-16, .columns .c10-16, .columns .c11-16, .columns .c12-16,
-	.columns .c13-16, .columns .c14-16, .columns .c15-16 {
-		display:block;
-		float: none;
-		width: auto;
-		clear: both;
-		padding-bottom: 5px;
-	}
-}
+.-x-1-16  {left:-6.25%}
+.-x-2-16  {left:-12.5%}
+.-x-3-16  {left:-18.75%}
+.-x-4-16  {left:-25%}
+.-x-5-16  {left:-31.25%}
+.-x-6-16  {left:-37.5%}
+.-x-7-16  {left:-43.75%}
+.-x-8-16  {left:-50%}
+.-x-9-16  {left:-56.25%}
+.-x-10-16 {left:-62.5%}
+.-x-11-16 {left:-68.75%}
+.-x-12-16 {left:-75%}
+.-x-13-16 {left:-81.25%}
+.-x-14-16 {left:-87.5%}
+.-x-15-16 {left:-93.75%}

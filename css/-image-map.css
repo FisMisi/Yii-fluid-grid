@@ -5,7 +5,6 @@
 	position: absolute;
 	display: inline-block;
 	padding: 3px 6px 10px;
-	background-image: url("/images/tooltip-dark.png");
 	background-repeat: no-repeat;
 	background-position: 0 100%;
 	color: #fff;
@@ -17,7 +16,7 @@
 	background-position: 100% 100%;
 }
 .image-map span.lite{
-	background-image: url(/images/tooltip-light.png);
+
 }
 .image-map .x05{left:5%} .image-map .x1{left:10%} .image-map .x15{left:15%} .image-map .x2{left:20%}
 .image-map .x25{left:25%} .image-map .x3{left:30%} .image-map .x35{left:35%} .image-map .x4{left:40%}

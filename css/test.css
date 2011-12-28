@@ -1,0 +1,35 @@
+body{
+	background: #ccc;
+	line-height: 1.3em;
+}
+.wrap{
+	background: #ccffcc;
+	box-shadow: #666 0 0 10px;
+	max-width: 1000px;
+	margin: 0 auto;
+}
+
+.hint{
+	font-size: 10px;
+	font-weight: bold;
+	font-family: verdana, monospace;
+	background: #fafab8;
+	display: inline-block;
+	padding: .1em .2em;
+	position: relative;
+	top: -1.5em;
+	opacity: .8;
+}
+
+.c{
+	background: #e0bafc;
+	background: -moz-linear-gradient(left, #e0bafc 0%, #b868cc 100%);
+	background: -webkit-gradient(linear, left top, right top, color-stop(0%,#e0bafc), color-stop(100%,#b868cc));
+}
+
+.m-, .-m-, .-m{
+	background: #fff;
+}
+p{
+	font-size: 13px;
+}

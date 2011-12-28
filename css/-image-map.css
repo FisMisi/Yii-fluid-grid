@@ -1,0 +1,32 @@
+/* Static map layout */
+.image-map{position: relative;margin: 0 auto;
+	display: inline-block;}
+.image-map span{
+	position: absolute;
+	display: inline-block;
+	padding: 3px 6px 10px;
+	background-image: url("/images/tooltip-dark.png");
+	background-repeat: no-repeat;
+	background-position: 0 100%;
+	color: #fff;
+	font-size: 12px;
+	top: 0;
+	left: 0;
+}
+.image-map span.r{
+	background-position: 100% 100%;
+}
+.image-map span.lite{
+	background-image: url(/images/tooltip-light.png);
+}
+.image-map .x05{left:5%} .image-map .x1{left:10%} .image-map .x15{left:15%} .image-map .x2{left:20%}
+.image-map .x25{left:25%} .image-map .x3{left:30%} .image-map .x35{left:35%} .image-map .x4{left:40%}
+.image-map .x45{left:45%} .image-map .x5{left:50%} .image-map .x55{left:55%} .image-map .x6{left:60%}
+.image-map .x65{left:65%} .image-map .x7{left:70%} .image-map .x75{left:75%} .image-map .x8{left:80%}
+.image-map .x85{left:85%} .image-map .x9{left:90%}
+
+.image-map .y05{top:5%} .image-map .y1{top:10%} .image-map .y15{top:15%} .image-map .y2{top:20%}
+.image-map .y25{top:25%} .image-map .y3{top:30%} .image-map .y35{top:35%} .image-map .y4{top:40%}
+.image-map .y45{top:45%} .image-map .y5{top:50%} .image-map .y55{top:55%} .image-map .y6{top:60%}
+.image-map .y65{top:65%} .image-map .y7{top:70%} .image-map .y75{top:75%} .image-map .y8{top:80%}
+.image-map .y85{top:85%} .image-map .y9{top:90%} .image-map .y95{top:95%}

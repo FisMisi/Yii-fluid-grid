@@ -1,0 +1,31 @@
+.ddlist dt{
+	font-size: 21px;
+	padding-bottom: .3em;
+	text-indent: -16px;
+}
+.faq dt{
+	padding-top: .8em;
+}
+.faq dt:first-child{
+	padding-top: 0;
+}
+.ddlist dt a{
+	text-decoration: none;
+}
+.ddlist  dt.closed a{}
+
+.ddlist dt a span{
+	color: #666;
+	border-bottom: 1px dotted #666;
+	font-style: italic;
+}
+.ddlist  dt.closed a span{
+	color: #669900;
+	border-bottom: 1px dotted #669900;
+	font-style: normal;
+}
+.ddlist dd{
+	display: none;
+	padding-bottom: 1em;
+	//zoom:1;
+}

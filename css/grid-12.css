@@ -1,12 +1,3 @@
-/*
-TODO union divisions by 12 and 16 to 24, cause it have many similar divisions
-and allows to tune 12-grid columns more discrete.
-But for design we can use any of these dimensions
-maybe just rewrite some rules:
-.w3-12, .w-4-16, .w6-24{ width: 25% }
- */
-
-
 .w-1-12  {width:8.3333%}
 .w-2-12  {width:16.6666%}
 .w-3-12  {width:25%}

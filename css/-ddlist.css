@@ -1,31 +1,38 @@
-.ddlist dt{
-	font-size: 21px;
-	padding-bottom: .3em;
+dl {
+	padding-bottom: 1em;
+}
+dl dt{
 	text-indent: -16px;
 }
-.faq dt{
+dl dt{
 	padding-top: .8em;
+	padding-bottom: .5em;
 }
-.faq dt:first-child{
+dl dt:first-child{
 	padding-top: 0;
 }
-.ddlist dt a{
+dl dt a{
 	text-decoration: none;
 }
-.ddlist  dt.closed a{}
+dl  dt.closed a{}
 
-.ddlist dt a span{
+dl dt a span{
 	color: #666;
 	border-bottom: 1px dotted #666;
-	font-style: italic;
 }
-.ddlist  dt.closed a span{
+dl  dt.closed a span{
 	color: #669900;
 	border-bottom: 1px dotted #669900;
 	font-style: normal;
 }
-.ddlist dd{
+dl dd{
 	display: none;
 	padding-bottom: 1em;
 	//zoom:1;
 }
+
+dl dd.closed{
+	display: none;
+}
+.i16.collapse{background-position:-40px -11px}
+.closed .i16.collapse{background-position:-60px -15px}

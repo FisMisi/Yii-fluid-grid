@@ -4,6 +4,7 @@ class GridModule extends CWebModule{
 	public function init(){
 		self::publishGrid();
 		$this->layout = '/layouts/default';
+		parent::init();
 	}
 
 	public static function publishGrid(){

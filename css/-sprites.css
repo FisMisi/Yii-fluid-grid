@@ -4,7 +4,7 @@
 	display: inline-block;
 	width: 16px;
 	height: 16px;
-	background-image:url("images/sprites.png");
+	background-image:url(images/sprites.png);
 	background-repeat: no-repeat;
 	font-style: normal;
 	font-size: 0;
@@ -19,28 +19,42 @@
 	height: 32px;
 }
 
+/* adds hanging pseudo-icon */
+/* todo <IE7 expressions */
+.-i16{
+	position: relative;
+}
+.-i16:before{
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+	content: "";
+	position: absolute;
+	left: -20px;
+	background-image: url(images/sprites.png);
+}
+
 /* TODO test hanging icon */
-.i16.i-hang{
+.i16.i-out{
 	float:left;
 	margin-left: -16px;
 }
-.i32.i-hang{
+.i32.i-out{
 	float:left;
 	margin-left: -32px;
 }
 
+
 /* TODO filter classes to universal set (file types, bullets, arrows), additional icon classes will appear in site stylesheet;
   A lot of standard icons already located in jquery ui icons (jquery.ui.theme.css of any jQueryUI package)
  */
-.i16-close{background-position:0 0}
-.i16-close:hover{background-position:-20px 0}
+.i16-close{background-position:-20px 0}
+.i16-close:hover{background-position:3px 3px}
 .i16-home{background-position:0 -16px}
-.i16-collapse{background-position:-40px -11px}
 .i16-print{background-position:-100px -40px}
 .i16-minus{background-position:-40px -10px}
 .i16-plus{background-position:-80px 5px}
 .i16-dash{background-position:-80px -10px}
-.closed .i16-collapse{background-position:-60px -15px}
 .i16-lock{background-position: -180px -20px}
 .i16-flag{background-position: -140px -20px}
 .i16-flag-white{background-position: -140px -80px}

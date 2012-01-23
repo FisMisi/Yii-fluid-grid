@@ -4,13 +4,20 @@
 */
 
 /* TODO explore http://meyerweb.com/eric/tools/css/reset/ */
-a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,caption,center,cite,code,dd,del,details,dfn,dialog,div,dl,dt,em,embed,fieldset,figcaption,figure,font,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,hr,html,i,iframe,img,ins,kbd,label,legend,li,mark,menu,meter,nav,object,ol,output,p,pre,progress,q,rp,rt,ruby,s,samp,section,small,span,strike,strong,sub,summary,sup,table,tbody,td,tfoot,th,thead,time,tr,tt,u,ul,var,video,xmp{border:0;font-size:100%;margin:0;padding:0}
+a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,caption,
+center,cite,code,dd,del,details,dfn,dialog,div,dl,dt,em,embed,fieldset,figcaption,
+figure,font,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,hr,html,i,iframe,img,ins,kbd,
+label,legend,li,mark,menu,meter,nav,object,ol,output,p,pre,progress,q,rp,rt,ruby,s,samp,
+section,small,span,strike,strong,sub,summary,sup,table,tbody,td,tfoot,th,thead,time,tr,
+tt,u,ul,var,video,xmp{border:0;font-size:100%;margin:0;padding:0}
 html,body{height:100%}
-article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section
+{display:block}
 b,strong{font-weight:bold}
 img{font-size:0;vertical-align:middle;-ms-interpolation-mode:bicubic}
-li{display:list-item} table{border-collapse:collapse;border-spacing:0}
-th,td,caption{font-weight:normal;vertical-align:top;text-align:left} svg{overflow:hidden}
+table{border-collapse:collapse;border-spacing:0}
+th,td,caption{font-weight:normal;vertical-align:top;text-align:left}
+svg{overflow:hidden}
 
 /*** Globals ***/
 body{
@@ -34,7 +41,6 @@ a.external{
 	margin-right: .6em;
 }
 
-img.fluid{max-width: 100%; _width: 100%}
 
 /*** Font-n-typo ***/
 /* TODO explore https://github.com/nathansmith/960-Grid-System/blob/master/code/css/text.css */
@@ -43,64 +49,71 @@ h1,h2,h3,h4,h5,h6{
 	font-weight: normal;
 	padding-bottom: .3em;
 }
-h3,h4,h5,h6{
+h1,h2{
 	padding-bottom: .5em;
 }
 
 /* Headings sizing, without applying head tags. Common rules forces metrics to match ALWAYS */
-/* TODO rewrite to ems/% for quick body font adjust */
-h1, .f-1{font-size: 29px}
-h2, .f-2{font-size: 21px}
-h3, .f-3{font-size: 19px}
-h4, .f-4{font-size: 17px}
+h1, .f-1{font-size: 2.0714em}
+h2, .f-2{font-size: 1.6428em}
+h3, .f-3{font-size: 1.3571em}
+h4, .f-4{font-size: 1.2142em}
 
 /*
 TODO find out universal sequence of sizes, including XXS ... XXXL
 it must be between headings sizes, or cover ALL sizes of this sequence:
 */
-.f-XXS{font-size: 10px}
-.f-XS{font-size: 11px}
-.f-S{font-size: 12px}
-.f-M{font-size: 15px; line-height: 125%}
-.f-L{font-size: 21px; line-height: 115%}
-.f-XL{font-size: 27px; line-height: 115%}
-.f-XXL{font-size: 36px; line-height: 112%}
+.f-XXS{font-size: .7142em}
+.f-XS{font-size: .7857em}
+.f-S{font-size: .8571em}
+.f-M{font-size: 1.0714em; line-height: 1.25em}
+.f-L{font-size: 1.5em; line-height: 1.15em}
+.f-XL{font-size: 1.9285em; line-height: 1.15em}
+.f-XXL{font-size: 2.5714em; line-height: 1.12em}
 
 .f-light{color: #777}
 .f-dark{color: #333}
 .f-inverse{color: #fff}
 
+/* text transformations for individual cases */
 .f-i{font-style: italic}
 .f-b{font-weight: bold}
+.f-UC{text-transform: uppercase}
+.f-lc{text-transform: lowercase}
+.f-Cp{text-transform: capitalize}
 
 /* TODO try .t-C .t-L .t-R .t-J */
-.t-C {text-align: center;}
-.t-R {text-align: right;}
-.t-L {text-align: left;}
-.t-J {text-align: justify;word-spacing: -0.08em;}
+.t-C {text-align: center}
+.t-R {text-align: right}
+.t-L {text-align: left}
+.t-J {text-align: justify; word-spacing: -0.08em}
+
+.nobr{white-space:nowrap}
 
 /* Text tags */
 p{padding: 0 0 1em}
 p.f-L, p.f-XL, p.f-XXL{padding-bottom: .3em}
 
 ul{padding: 0 0 .5em 1em}
-ul li{padding: 0 0 .5em}
+li{display:list-item; padding: 0 0 .5em}
+ol li{
+	list-style-position: inside;
+	padding-left: 13px;
+}
 
 .inset{
 	display: block;
 	float: none;
 	background: #666;
 	color: #fff;
-	padding: .8em 1em .9em;
+	padding: .8em 1em .5em;
 }
 .inset-text{
 	padding-bottom: 0;
 }
 .inset-pic{
 	display: inline-block;
-	/*position: relative;*/
 }
-	
 .inset-out{
 	margin-left: -1em;
 	margin-right: -1em;
@@ -108,9 +121,11 @@ ul li{padding: 0 0 .5em}
 
 .inset-left{
 	float: left;
+	margin-right: 1.2em;
 }
 .inset-right{
 	float: right;
+	margin-left: 1.2em;
 }
 
 .inset-round{
@@ -125,28 +140,30 @@ ul li{padding: 0 0 .5em}
 }
 
 /* For img only */
-img.ill{
+img.i{
 	margin: 1em 1.2em;
 	display: inline-block;
 }
-img.ill-left{
+img.i-L{
 	margin-right: 0;
 	float: left;
 }
-img.ill-right{
+img.i-R{
 	margin-left: 0;
 	float: right;
 }
-img.ill-center{
+img.i-C{
 	float: none;
 	text-align: center;
 	margin: 1em auto;
 	display: block;
+	text-align: center;
 }
-img.ill-clear{
+img.i-clear{
+	clear: both;
 
 }
-img.ill-fluid{
+img.i-fluid{
 	max-width:100%;
 	_width:100%;
 }
@@ -169,11 +186,14 @@ ul.menu-horizontal{
 	margin-left: -.4em;
 }
 ul.menu-horizontal li{
-	display: inline;
+	display: inline-block;
+    //display:inline;
+    //zoom:1;
 	margin-right: .3em;
+	vertical-align: top;
+	padding-bottom: 0;
 }
 ul.menu-horizontal li a{
-	text-decoration: none;
 	display: inline-block;
 	padding: .2em .5em .25em;
 	vertical-align: top;
@@ -202,20 +222,22 @@ sub, sup {
 sup {top: -0.5em}
 sub {bottom: -0.25em}
 
-/* TODO Make unified text-marking */
+/* <ins>Marks text by parts</ins><ins>every line is always </ins> */
 ins{
 	display: inline-block;
 	//display: inline;
+	//zoom:1;
+	float: left;
+	clear: both;
 	background: #333;
 	color: #fff;
 	padding: .2em .4em .3em;
 	text-decoration: none;
+	white-space: nowrap;
 }
-ins.last{
-	padding-top: .1em;
-	position: relative;
-	top: -.4em;
-	//top: -.15em;
+ins + ins{
+	margin-top: -.3em;
+	padding-top: 0;
 }
 
 /* todo Breadcrumbs */
@@ -234,10 +256,19 @@ button, input, select, textarea {
 	font-family: sans-serif;
     vertical-align: baseline;
     *vertical-align: middle;
+	font-size: 1em;
+	border-radius: .23em;
+	-moz-border-radius: .23em;
+	-webkit-border-radius: .23em;
 }
 
 select{
 	width: 100%;
+	padding: .2em;
+	border: 1px solid #c1c1c1;
+}
+select option{
+	padding: 0 .2em;
 }
 
 input[type='text'],
@@ -248,8 +279,11 @@ textarea{
 	border-bottom: 1px solid #e1e1e1;
 	padding: .2em 1% .3em;
 	width: 98%;
+    vertical-align: top;
 }
-
+textarea {
+    overflow: auto; /* scrollbar */
+}
 button,input {
     line-height: normal;
     *overflow: visible;
@@ -257,6 +291,9 @@ button,input {
 
 input:focus, select:focus, textarea:focus{
 	outline: none;
+	border-color: rgba(82, 168, 236, 0.8);
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) inset, 0 0 8px rgba(82, 168, 236, 0.6);
+	-moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) inset, 0 0 8px rgba(82, 168, 236, 0.6);
 }
 
 /*
@@ -287,7 +324,7 @@ input[type="radio"] {
 	vertical-align: middle;
 }
 
-input[size]{
+input[size], textarea[cols]{
 	width: auto;
 }
 
@@ -300,25 +337,22 @@ input::-moz-focus-inner {
     padding: 0;
 }
 
-textarea {
-    overflow: auto; /* scrollbar */
-    vertical-align: top; /* 2 */
-}
 sup.required{
 	color: #F44D76;
 	font-weight: normal;
 }
 
-/* Columns + clearfix */
+/* Clearfix */
 /* TODO shorten class name for css shrinking */
 /* TODO make columns-in-columns container, for background assembling */
 /* TODO .columns is useless ???
 	- too hacked, unstable
 	- hard to split for HTML snippets (exm, Bitrix page template)
 */
-.columns {}
+.clearfix {}
+
 /* http://goo.gl/z8yiK */
-.columns:after {
+.clearfix:after {
 	clear: both;
 	content: ' ';
 	display: block;
@@ -328,20 +362,35 @@ sup.required{
 	width: 0;
 	height: 0;
 }
-.columns { display: inline-block; }
-* html .columns { height: 1%; }
-.columns { display: block; }
+.clearfix { display: inline-block; }
+* html .clearfix { height: 1%; }
+.clearfix { display: block; }
 
+/*
+Vertical page section, full-width
+.body >	.wrap * NN
+ */
+.body{
+	padding: 0 60px;
+	overflow: hidden;
+}
+/* Content centering wrap */
+.wrap{
+	max-width: 1200px;
+	min-width: 880px;
+	margin: 0 auto;
+	text-align: left;
+}
+/* TODO make columns-in-columns container, for background assembling */
 .c-first{}
 .c-last{clear: right /* IE6-7 */}
 
-/*
-gutters
-TODO -mm -mm- mm- ???
-*/
-.-m{margin-left: 10px;margin-right: 0}
-.m-{margin-left: 0;margin-right: 10px}
-.-m-{margin-left: 10px;margin-right: 10px}
+/* gutters */
+.-c {margin-left: .7142em}
+.c- {margin-right: .7142em}
+.-c- {margin-left: .7142em;margin-right: .7142em}
+.-c-out {margin-left: -.7142em}
+.c-out {margin-right: -.7142em}
 
 
 /* TODO Fitting last column to right border when column is not dividable by 2 */
@@ -350,7 +399,7 @@ TODO -mm -mm- mm- ???
 	overflow-x: hidden;
 	overflow-y: visible;
 }
-.c-last.stretch-right .-m{
+.c-last.stretch-right .-c {
 	margin-right: -5px; padding-left: 5px;
 }
 
@@ -361,11 +410,10 @@ TODO -mm -mm- mm- ???
 .post-y-0{padding-bottom: 0;}
 
 /* Vertical paddings, in fixed grid interval */
-/* TODO change vertical intervals from font-sizes (1/2/3 em) to line-heights (1.3/2.6/3.9 em) */
-/* TODO vertical pulls and change names like .y-1 .y--2 */
 .pre-x-1{padding-left: 1em;}
 .post-x-1{padding-right: 1em;}
 
+.pre-y-025{padding-top: .25em !important}
 .pre-y-05{padding-top: .5em !important}
 .pre-y-1{padding-top: 1em !important}
 .pre-y-15{padding-top: 1.5em !important}
@@ -375,22 +423,24 @@ TODO -mm -mm- mm- ???
 .pre-y-35{padding-top: 3.5em !important}
 .pre-y-4{padding-top: 4em !important}
 
-.post-y-05{padding-bottom: .5em!important;}
-.post-y-1{padding-bottom: 1em!important;}
-.post-y-15{padding-bottom: 1.5em!important;}
-.post-y-2{padding-bottom: 2em!important;}
-.post-y-25{padding-bottom: 2.5em!important;}
-.post-y-3{padding-bottom: 3em!important;}
-.post-y-35{padding-bottom: 3.5em!important;}
-.post-y-4{padding-bottom: 4em!important;}
+.post-y-025{padding-bottom: .25em!important}
+.post-y-05{padding-bottom: .5em!important}
+.post-y-1{padding-bottom: 1em!important}
+.post-y-15{padding-bottom: 1.5em!important}
+.post-y-2{padding-bottom: 2em!important}
+.post-y-25{padding-bottom: 2.5em!important}
+.post-y-3{padding-bottom: 3em!important}
+.post-y-35{padding-bottom: 3.5em!important}
+.post-y-4{padding-bottom: 4em!important}
 
-.-y-1{margin-top: -1em!important;} .-y-2{margin-top: -2em!important;} .-y-3{margin-top: -3em!important;} .-y-4{margin-top: -4em!important;}
-.y-1{margin-top: 1em!important;}   .y-2{margin-top: 2em!important;}   .y-3{margin-top: 3em!important;}   .y-4{margin-top: 4em!important;}
+.-y-1{margin-top:-1em!important} .-y-2{margin-top:-2em!important}
+.-y-3{margin-top:-3em!important} .-y-4{margin-top:-4em!important}
+.y-1{margin-top:1em!important}   .y-2{margin-top:2em!important}
+.y-3{margin-top:3em!important}   .y-4{margin-top:4em!important}
 
 /* List with items (example: photo in gallery, visit cards) in grid order */
-/* TODO rename to grid */
-.list{word-spacing: -1em;}
-.list-item{
+.grid{word-spacing: -1em;}
+.grid-item{
 	display: inline-block;
 	vertical-align: top;
 	float: none;
@@ -400,14 +450,15 @@ TODO -mm -mm- mm- ???
 }
 
 /* List with arranging items to horizontal gutter intervals*/
-.list-m{
+/* TODO test margined lists */
+.grid-m{
 	margin-left: -10px;
 }
-.list-m .list-item{
+.grid-m .grid-item{
 	margin-right: 20px;
 }
 
-/* Columns entity */
+/* Column entity */
 .c{
 	display:inline;
 	float: left;
@@ -421,13 +472,11 @@ TODO -mm -mm- mm- ???
 .w-80 {width:80%} .w-85 {width:85%} .w-90 {width:90%} .w-95 {width:95%}
 .w-100 {width:100%}
 
-.w-25, .w-3-12, .w-4-16  {width:25%}
-.w-50, .w-6-12, .w-8-16  {width:50%}
-.w-75, .w-9-12, .w-12-16 {width:75%}
+.w-25 {width:25%}
+.w-50 {width:50%}
+.w-75 {width:75%}
 
-/*
-Horizontal spacing and shifting
-*/
+/* Horizontal spacing and shifting */
 .pre-x-5  {padding-left:5%}  .pre-x-10 {padding-left:10%}
 .pre-x-15 {padding-left:15%} .pre-x-20 {padding-left:20%}
 .pre-x-25 {padding-left:25%} .pre-x-30 {padding-left:30%}
@@ -480,19 +529,21 @@ All layers by default placed on 3 levels
 .z-500{z-index: 500;position: relative;zoom:1} /* z-index in medium */
 .z-100500{z-index: 100500;position: relative;zoom:1} /* z-index over 9k */
 
-.nobr{white-space:nowrap;}
 
-/* TODO find out optimal bounds for all column widths */
-/* TODO expressions for IE<=8 */
-/* TODO adjust global BODY font-size,
-depending on width, and use em as possible in layouts, like jQueryUI
-- -m -m- m-
-- w-XXX
-- f-XS ... f-XXL f-1 ... f-3
-- sub sup ul
-*/
-@media only screen and (max-width: 1000px){
-	.min-1000 {
+/* todo expressions for IE<=8 */
+
+/* Large sizes */
+/* todo recalc to ems relative to body */
+@media only screen and (min-width: 1600px){ .body{font-size: 16px} }
+@media only screen and (min-width: 1320px){
+	.body{font-size: 15px}
+}
+
+
+/* Lower that 1024 but bigger that 768 */
+@media only screen and (max-width: 980px){
+	/* "lt-1000" means "screen less than 1000px width" etc */
+	.lt-1024 {
 		display:block !important;
 		float: none !important;
 		width: auto !important;
@@ -504,10 +555,37 @@ depending on width, and use em as possible in layouts, like jQueryUI
 		margin-right: 0!important;
 		height: auto!important;
 	}
-	.-m, .-m-, .m- {margin-left: 5px;margin-right: 5px;}
+	.lt-1024-hide{display:none!important}
+	.wrap{min-width: 0}
 }
+
+/* Lower than 800, including iPad vertical */
+@media only screen and (max-width: 768px){
+	.body{
+		font-size: 13px;
+		padding-left: 3em;
+		padding-right: 3em;
+	}
+	.lt-800 {
+		display:block !important;
+		float: none !important;
+		width: auto !important;
+		clear: both !important;
+		position: static!important;
+		padding-left: 0!important;
+		padding-right: 0!important;
+		margin-left: 0!important;
+		margin-right: 0!important;
+		height: auto!important;
+	}
+	.lt-800-hide{display:none!important}
+	.c-, .-c, .-c- {margin-left:.57em;margin-right:.57em}
+	.-c-out, .c-out{margin-left: 0;margin-right: 0}
+}
+
+/* Mobile phones, even most expensive ;) */
 @media only screen and (max-width: 480px){
-	.c, .body .min-480, .min-1000 {
+	.c, .lt-480 {
 		display:block !important;
 		float: none !important;
 		width: auto !important;
@@ -519,8 +597,10 @@ depending on width, and use em as possible in layouts, like jQueryUI
 		margin-right: 0!important;
 		height: auto!important;
 	}
-	.min-480-hide{display:none!important}
-	.-m, .-m-, .m- {margin-left:0;margin-right:0;padding-bottom: 1em;}
+	.body{padding-left: 2em;padding-right: 2em;}
+	.lt-480-hide{display:none!important} /* Hide this on too small screens */
+	.-c, .-c-, .c- {margin-left:0;margin-right:0;padding-bottom: 1em;}
+	ins{white-space: normal}
 }
 
-/* TODO max-width 320? */
+/* todo max-width 320? */

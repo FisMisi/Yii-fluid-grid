@@ -6,7 +6,8 @@ class DefaultController extends Controller{
 	}
 
 	public function actionTest(){
-		Yii::app()->assetManager->publish($this->getModule()->getBasePath().'/css/', true, 2, true);
+		$assetsPath = Yii::app()->assetManager->publish($this->getModule()->getBasePath().'/css/', true, 2, true);
+		Yii::app()->clientScript->registerCssFile($assetsPath.'/test.css');
 		$this->render('test');
 	}
 

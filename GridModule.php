@@ -3,7 +3,6 @@ class GridModule extends CWebModule{
 	protected $plugins = array();
 	public function init(){
 		self::publishGrid();
-		$this->layout = '/layouts/default';
 		parent::init();
 	}
 
@@ -14,7 +13,7 @@ class GridModule extends CWebModule{
 		$package = array(
 			'baseUrl'=>$resourceRoot,
 			'basePath'=>'',
-			'css'=>array('test.css','grid.css','grid-16.css'),
+			'css'=>array('grid.css','grid-16.css'),
 			'depends'=>array('jquery'),
 		);
 		/** @var $cs CClientScript */

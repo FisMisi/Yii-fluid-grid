@@ -21,8 +21,14 @@ svg{overflow:hidden}
 
 /*** Globals ***/
 body{
-	font: 14px/1.3 arial, helvetica, sans-serif;
+	font-family: arial, helvetica, sans-serif;
 	color: #333;
+}
+
+/* Normalize font size */
+body, .f{
+    font-size: 14px;
+    line-height: 1.45em;
 }
 
 html {
@@ -33,23 +39,28 @@ html {
 }
 
 a, a:visited{color: #008AE7}
-a:hover,a:active {outline: 0}
+.selected a, a:hover, a:active {outline: 0}
 
 a.external{
-	background: url(images/link-ext.png) 100% 5px no-repeat;
+	background: url(images/link-ext.gif) 100% 55% no-repeat;
 	padding-right: 13px;
 	margin-right: .6em;
+}
+
+h1 a,h2 a,h3 a,h4 a,h5 a, h6 a{
+	text-decoration: none;
 }
 
 
 /*** Font-n-typo ***/
 /* TODO explore https://github.com/nathansmith/960-Grid-System/blob/master/code/css/text.css */
-h1,h2,h3,h4,h5,h6{
+h1, h2, h3, h4,
+.f-1, .f-2, .f-3, .f-4{
 	line-height: 105%;
 	font-weight: normal;
 	padding-bottom: .3em;
 }
-h1,h2{
+h1,h2,h3, .f-1, .f-2, .f-3{
 	padding-bottom: .5em;
 }
 
@@ -63,16 +74,18 @@ h4, .f-4{font-size: 1.2142em}
 TODO find out universal sequence of sizes, including XXS ... XXXL
 it must be between headings sizes, or cover ALL sizes of this sequence:
 */
-.f-XXS{font-size: .7142em}
-.f-XS{font-size: .7857em}
-.f-S{font-size: .8571em}
+.f-XXS{font-size: .7142em;line-height: 1.3em}
+.f-XS{font-size: .7857em;line-height: 1.4em}
+.f-S{font-size: .8571em;line-height: 1.4em}
 .f-M{font-size: 1.0714em; line-height: 1.25em}
 .f-L{font-size: 1.5em; line-height: 1.15em}
 .f-XL{font-size: 1.9285em; line-height: 1.15em}
 .f-XXL{font-size: 2.5714em; line-height: 1.12em}
+.f-XXXL{font-size: 2.785em; line-height: 1em}
+.f-XXXXL{font-size: 343.28%; line-height: .9em}
 
-.f-light{color: #777}
-.f-dark{color: #333}
+.f-light{color:rgba(0,0,0,.5);//color: #777}
+.f-dark{color:rgba(0,0,0,.25);//color: #333}
 .f-inverse{color: #fff}
 
 /* text transformations for individual cases */
@@ -82,7 +95,6 @@ it must be between headings sizes, or cover ALL sizes of this sequence:
 .f-lc{text-transform: lowercase}
 .f-Cp{text-transform: capitalize}
 
-/* TODO try .t-C .t-L .t-R .t-J */
 .t-C {text-align: center}
 .t-R {text-align: right}
 .t-L {text-align: left}
@@ -94,12 +106,21 @@ it must be between headings sizes, or cover ALL sizes of this sequence:
 p{padding: 0 0 1em}
 p.f-L, p.f-XL, p.f-XXL{padding-bottom: .3em}
 
-ul{padding: 0 0 .5em 1em}
-li{display:list-item; padding: 0 0 .5em}
+ul{padding: 0 0 1em 1em}
+ul[class]{padding: 0}
+
+li{
+    display:list-item;
+    padding: 0 0 .5em;
+    list-style-image: url(/images/bullet.png);
+    list-style-position: outside;
+}
 ol li{
 	list-style-position: inside;
 	padding-left: 13px;
+    list-style-image: none;
 }
+ul[class] li{list-style-image: none; list-style-type: none}
 
 .inset{
 	display: block;
@@ -108,9 +129,7 @@ ol li{
 	color: #fff;
 	padding: .8em 1em .5em;
 }
-.inset-text{
-	padding-bottom: 0;
-}
+
 .inset-pic{
 	display: inline-block;
 }
@@ -140,16 +159,17 @@ ol li{
 }
 
 /* For img only */
-img.i{
-	margin: 1em 1.2em;
+.i{
+	margin: 0 1.2em 1em;
 	display: inline-block;
+    font-size: 100%;
 }
-img.i-L{
-	margin-right: 0;
+.i-L{
 	float: left;
-}
-img.i-R{
 	margin-left: 0;
+}
+.i-R{
+    margin-right: 0;
 	float: right;
 }
 img.i-C{
@@ -163,10 +183,13 @@ img.i-clear{
 	clear: both;
 
 }
-img.i-fluid{
+img.i-J {
 	max-width:100%;
 	_width:100%;
 }
+
+img.i-first{margin-top: 0}
+img.i-last{margin-bottom: 0}
 
 /* Navigation */
 ul.menu{
@@ -174,6 +197,7 @@ ul.menu{
 }
 ul.menu li{
 	list-style-type: none;
+    list-style-image: none;
 	line-height: 130%;
 }
 ul.menu li.clear{
@@ -202,8 +226,8 @@ ul.menu-horizontal li span{
 	vertical-align: top;
 }
 
-pre, code, kbd, samp {
-    font-family: 'courier new', 'courier', monospace, serif;
+pre, code, kbd, samp, .f-mono {
+    font-family: Consolas, 'Droid Mono', 'courier new', 'courier', monospace, serif;
     font-size: 1.15em;
 }
 
@@ -240,9 +264,17 @@ ins + ins{
 	padding-top: 0;
 }
 
+.nowrap{
+    white-space: nowrap;
+}
+
 /* todo Breadcrumbs */
 
 /*** Forms ***/
+form .row{
+    padding: 0 0 .6em;
+}
+
 fieldset {
     border: 1px solid #c0c0c0;
     margin: 0 2px;
@@ -281,8 +313,17 @@ textarea{
 	width: 98%;
     vertical-align: top;
 }
+
+td input[type='text'],
+td input[type='password'],
+td textarea,
+td select{
+    //width: 90%;
+}
+
 textarea {
     overflow: auto; /* scrollbar */
+    resize: vertical;
 }
 button,input {
     line-height: normal;
@@ -311,6 +352,7 @@ input[type="reset"],
 input[type="submit"] {
     cursor: pointer;
     -webkit-appearance: button; /* iOS */
+    margin: 0;
 }
 
 /*
@@ -345,10 +387,6 @@ sup.required{
 /* Clearfix */
 /* TODO shorten class name for css shrinking */
 /* TODO make columns-in-columns container, for background assembling */
-/* TODO .columns is useless ???
-	- too hacked, unstable
-	- hard to split for HTML snippets (exm, Bitrix page template)
-*/
 .clearfix {}
 
 /* http://goo.gl/z8yiK */
@@ -374,6 +412,11 @@ Vertical page section, full-width
 	padding: 0 60px;
 	overflow: hidden;
 }
+.body .body{
+    margin: 0 -60px;
+    padding: 0;
+    overflow: visible;
+}
 /* Content centering wrap */
 .wrap{
 	max-width: 1200px;
@@ -386,11 +429,11 @@ Vertical page section, full-width
 .c-last{clear: right /* IE6-7 */}
 
 /* gutters */
-.-c {margin-left: .7142em}
-.c- {margin-right: .7142em}
-.-c- {margin-left: .7142em;margin-right: .7142em}
-.-c-out {margin-left: -.7142em}
-.c-out {margin-right: -.7142em}
+.-c {padding-left: 10px}
+.c- {padding-right: 10px}
+.-c- {padding-left: 10px;padding-right: 10px}
+.-c-out {margin-left: -10px}
+.c-out {margin-right: -10px}
 
 
 /* TODO Fitting last column to right border when column is not dividable by 2 */
@@ -404,14 +447,20 @@ Vertical page section, full-width
 }
 
 /* Clearing paddings, for example, for particular paragraphs and heads */
-.pre-x-0{padding-left: 0;}
-.post-x-0{padding-right: 0;}
-.pre-y-0{padding-top: 0;}
-.post-y-0{padding-bottom: 0;}
+.pre-x-0{padding-left:0}
+.post-x-0{padding-right:0}
+.pre-y-0{padding-top:0}
+.post-y-0{padding-bottom:0}
 
 /* Vertical paddings, in fixed grid interval */
-.pre-x-1{padding-left: 1em;}
-.post-x-1{padding-right: 1em;}
+.pre-x-1{padding-left:1em}
+.pre-x-2{padding-left:2em}
+.pre-x-3{padding-left:3em}
+.pre-x-4{padding-left:4em}
+.post-x-1{padding-right:1em}
+.post-x-2{padding-right:2em}
+.post-x-3{padding-right:3em}
+.post-x-4{padding-right:4em}
 
 .pre-y-025{padding-top: .25em !important}
 .pre-y-05{padding-top: .5em !important}
@@ -433,29 +482,33 @@ Vertical page section, full-width
 .post-y-35{padding-bottom: 3.5em!important}
 .post-y-4{padding-bottom: 4em!important}
 
-.-y-1{margin-top:-1em!important} .-y-2{margin-top:-2em!important}
-.-y-3{margin-top:-3em!important} .-y-4{margin-top:-4em!important}
-.y-1{margin-top:1em!important}   .y-2{margin-top:2em!important}
-.y-3{margin-top:3em!important}   .y-4{margin-top:4em!important}
+
+
+.-y-1{top:-1em} .-y-2{top:-2em} .-y-3{top:-3em} .-y-4{top:-4em}
+ .y-1{top:1em}   .y-2{top:2em}   .y-3{top:3em}   .y-4{top:4em}
+
+.x-1-out{margin-right: -1em} .-x-1-out{margin-left: -1em}
+.x-2-out{margin-right: -2em} .-x-2-out{margin-left: -2em}
+.x-3-out{margin-right: -3em} .-x-3-out{margin-left: -3em}
+.x-4-out{margin-right: -4em} .-x-4-out{margin-left: -4em}
+.-y-1-out{margin-top:-1em!important} .-y-2-out{margin-top:-2em!important}
+.-y-3-out{margin-top:-3em!important} .-y-4-out{margin-top:-4em!important}
+ .y-1-out{margin-top:1em!important}   .y-2-out{margin-top:2em!important}
+ .y-3-out{margin-top:3em!important}   .y-4-out{margin-top:4em!important}
 
 /* List with items (example: photo in gallery, visit cards) in grid order */
-.grid{word-spacing: -1em;}
+.grid{font-size:0}
 .grid-item{
 	display: inline-block;
 	vertical-align: top;
 	float: none;
 	clear: none;
 	overflow: hidden;
-	word-spacing: normal;
-}
-
-/* List with arranging items to horizontal gutter intervals*/
-/* TODO test margined lists */
-.grid-m{
-	margin-left: -10px;
-}
-.grid-m .grid-item{
-	margin-right: 20px;
+    font-size: 14px;
+	margin: 0;
+	/*letter-spacing: normal;*/
+	//display: inline;
+	//zoom:1;
 }
 
 /* Column entity */
@@ -472,9 +525,8 @@ Vertical page section, full-width
 .w-80 {width:80%} .w-85 {width:85%} .w-90 {width:90%} .w-95 {width:95%}
 .w-100 {width:100%}
 
-.w-25 {width:25%}
-.w-50 {width:50%}
-.w-75 {width:75%}
+.w-25 {width:25%} .w-50 {width:50%} .w-75 {width:75%}
+.w-33 {width:33.3333%} .w-66 {width:66.6666%}
 
 /* Horizontal spacing and shifting */
 .pre-x-5  {padding-left:5%}  .pre-x-10 {padding-left:10%}
@@ -515,6 +567,26 @@ Vertical page section, full-width
 .-x-80 {left:-80%} .-x-85 {left:-85%} .-x-90 {left:-90%}
 .-x-95 {left:-95%}
 
+.-x-5-out  {margin-left:-5%}  .-x-10-out {margin-left:-15%} .-x-15-out {margin-left:-15%}
+.-x-20-out {margin-left:-20%} .-x-25-out {margin-left:-25%} .-x-30-out {margin-left:-30%}
+.-x-35-out {margin-left:-35%} .-x-40-out {margin-left:-40%} .-x-45-out {margin-left:-45%}
+.-x-50-out {margin-left:-50%} .-x-55-out {margin-left:-55%} .-x-60-out {margin-left:-60%}
+.-x-65-out {margin-left:-65%} .-x-70-out {margin-left:-70%} .-x-75-out {margin-left:-75%}
+.-x-80-out {margin-left:-80%} .-x-85-out {margin-left:-85%} .-x-90-out {margin-left:-90%}
+.-x-95-out {margin-left:-95%}
+
+.-x-33-out {margin-left:-33.3333%} .-x-66-out {margin-left:-66.6666%}
+
+.x-5-out  {margin-right:-5%}  .x-10-out {margin-right:-15%} .x-15-out {margin-right:-15%}
+.x-20-out {margin-right:-20%} .x-25-out {margin-right:-25%} .x-30-out {margin-right:-30%}
+.x-35-out {margin-right:-35%} .x-40-out {margin-right:-40%} .x-45-out {margin-right:-45%}
+.x-50-out {margin-right:-50%} .x-55-out {margin-right:-55%} .x-60-out {margin-right:-60%}
+.x-65-out {margin-right:-65%} .x-70-out {margin-right:-70%} .x-75-out {margin-right:-75%}
+.x-80-out {margin-right:-80%} .x-85-out {margin-right:-85%} .x-90-out {margin-right:-90%}
+.x-95-out {margin-right:-95%}
+
+.x-33-out {margin-right:-33.3333%} .x-66-out {margin-right:-66.6666%}
+
 .clear {float:none!important; clear:both!important; display:block; overflow:hidden; visibility:hidden; width:0; height:0}
 
 /**
@@ -534,9 +606,11 @@ All layers by default placed on 3 levels
 
 /* Large sizes */
 /* todo recalc to ems relative to body */
-@media only screen and (min-width: 1600px){ .body{font-size: 16px} }
+@media only screen and (min-width: 1600px){
+    body, .f, .grid-item{font-size: 16px}
+}
 @media only screen and (min-width: 1320px){
-	.body{font-size: 15px}
+    body, .f, .grid-item{font-size: 15px}
 }
 
 
@@ -554,18 +628,18 @@ All layers by default placed on 3 levels
 		margin-left: 0!important;
 		margin-right: 0!important;
 		height: auto!important;
+        text-align: left!important;
 	}
 	.lt-1024-hide{display:none!important}
 	.wrap{min-width: 0}
+    /* For short text lines */
+    .f-short{font-size: 85%}
 }
 
 /* Lower than 800, including iPad vertical */
 @media only screen and (max-width: 768px){
-	.body{
-		font-size: 13px;
-		padding-left: 3em;
-		padding-right: 3em;
-	}
+	.body{padding-left: 3em; padding-right: 3em}
+    body, .f, .grid-item{font-size: 13px}
 	.lt-800 {
 		display:block !important;
 		float: none !important;
@@ -577,9 +651,12 @@ All layers by default placed on 3 levels
 		margin-left: 0!important;
 		margin-right: 0!important;
 		height: auto!important;
+        text-align: left!important;
 	}
 	.lt-800-hide{display:none!important}
-	.c-, .-c, .-c- {margin-left:.57em;margin-right:.57em}
+    /* For short text lines */
+        .f-short{font-size: 70%}
+	.c-, .-c, .-c- {padding-left:8px;padding-right:8px}
 	.-c-out, .c-out{margin-left: 0;margin-right: 0}
 }
 
@@ -596,11 +673,14 @@ All layers by default placed on 3 levels
 		margin-left: 0!important;
 		margin-right: 0!important;
 		height: auto!important;
+        text-align: left!important;
 	}
-	.body{padding-left: 2em;padding-right: 2em;}
+	.body{padding-left: 2em;padding-right: 2em}
 	.lt-480-hide{display:none!important} /* Hide this on too small screens */
-	.-c, .-c-, .c- {margin-left:0;margin-right:0;padding-bottom: 1em;}
+	.-c, .-c-, .c- {padding-left:0;padding-right:0;padding-bottom: 1em}
 	ins{white-space: normal}
+    .wrap{width: auto}
+    .nowrap{white-space: normal}
 }
 
 /* todo max-width 320? */

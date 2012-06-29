@@ -205,6 +205,9 @@ ul.menu li.clear{
 	float : none !important;
 	padding: 0;
 }
+ul.menu li a{
+    border-bottom: none;
+}
 
 ul.menu-horizontal{
 	margin-left: -.4em;
@@ -597,25 +600,26 @@ All layers by default placed on 3 levels
 - [custom layers]
 - 100 lower than any layer
 */
-.z-100{z-index: 100;position: relative;zoom:1} /* z-index in lower layer */
-.z-500{z-index: 500;position: relative;zoom:1} /* z-index in medium */
-.z-100500{z-index: 100500;position: relative;zoom:1} /* z-index over 9k */
+.z{position: relative;*zoom:1} /* z-index in lower layer */
+.z-100{z-index: 100} /* z-index in lower layer */
+.z-500{z-index: 500} /* z-index in medium */
+.z-100500{z-index: 100500} /* z-index over 9k */
 
 
 /* todo expressions for IE<=8 */
 
 /* Large sizes */
 /* todo recalc to ems relative to body */
-@media only screen and (min-width: 1600px){
-    body, .f, .grid-item{font-size: 16px}
-}
+
 @media only screen and (min-width: 1320px){
-    body, .f, .grid-item{font-size: 15px}
+    body, .f, .grid-item{font-size: 16px}
 }
 
 
 /* Lower that 1024 but bigger that 768 */
 @media only screen and (max-width: 980px){
+    .body{padding-left: 40px; padding-right: 40px}
+    .body .body{margin-left: -40px; margin-right: -40px}
 	/* "lt-1000" means "screen less than 1000px width" etc */
 	.lt-1024 {
 		display:block !important;
@@ -638,7 +642,8 @@ All layers by default placed on 3 levels
 
 /* Lower than 800, including iPad vertical */
 @media only screen and (max-width: 768px){
-	.body{padding-left: 3em; padding-right: 3em}
+    .body{padding-left: 30px; padding-right: 30px}
+    .body .body{margin-left: -30px; margin-right: -30px}
     body, .f, .grid-item{font-size: 13px}
 	.lt-800 {
 		display:block !important;
@@ -675,6 +680,7 @@ All layers by default placed on 3 levels
 		height: auto!important;
         text-align: left!important;
 	}
+    .inset{margin-bottom: 1em;}
 	.body{padding-left: 2em;padding-right: 2em}
 	.lt-480-hide{display:none!important} /* Hide this on too small screens */
 	.-c, .-c-, .c- {padding-left:0;padding-right:0;padding-bottom: 1em}

@@ -42,12 +42,13 @@ a, a:visited{color: #008AE7}
 .selected a, a:hover, a:active {outline: 0}
 
 a.external{
-	background: url(images/link-ext.gif) 100% 55% no-repeat;
+	background: url(images/link-ext.png) 100% 55% no-repeat;
 	padding-right: 13px;
 	margin-right: .6em;
 }
 
-h1 a,h2 a,h3 a,h4 a,h5 a, h6 a{
+h1 a, h2 a, h3 a, h4 a,
+.f-1 a, .f-2 a, .f-3 a, .f-4 a{
 	text-decoration: none;
 }
 
@@ -65,24 +66,24 @@ h1,h2,h3, .f-1, .f-2, .f-3{
 }
 
 /* Headings sizing, without applying head tags. Common rules forces metrics to match ALWAYS */
-h1, .f-1{font-size: 2.0714em}
-h2, .f-2{font-size: 1.6428em}
-h3, .f-3{font-size: 1.3571em}
-h4, .f-4{font-size: 1.2142em}
+h1, .f-1{font-size: 2.0714em}/*29*/
+h2, .f-2{font-size: 1.6428em; padding: 1em 0 0.7em;}/*23*/
+h3, .f-3{font-size: 1.3571em; padding: 0.7em 0 0.5em;}/*18*/
+h4, .f-4{font-size: 1.2142em}/*17*/
 
 /*
 TODO find out universal sequence of sizes, including XXS ... XXXL
 it must be between headings sizes, or cover ALL sizes of this sequence:
 */
-.f-XXS{font-size: .7142em;line-height: 1.3em}
-.f-XS{font-size: .7857em;line-height: 1.4em}
-.f-S{font-size: .8571em;line-height: 1.4em}
-.f-M{font-size: 1.0714em; line-height: 1.25em}
-.f-L{font-size: 1.5em; line-height: 1.15em}
-.f-XL{font-size: 1.9285em; line-height: 1.15em}
-.f-XXL{font-size: 2.5714em; line-height: 1.12em}
-.f-XXXL{font-size: 2.785em; line-height: 1em}
-.f-XXXXL{font-size: 343.28%; line-height: .9em}
+.f-XXS{font-size: .7142em;line-height: 1.3em}/*10*/
+.f-XS{font-size: .7857em;line-height: 1.4em}/*11*/
+.f-S{font-size: .8571em;line-height: 1.4em}/*12*/
+.f-M{font-size: 1.0714em; line-height: 1.25em}/*15*/
+.f-L{font-size: 1.5em; line-height: 1.15em}/*21*/
+.f-XL{font-size: 1.9285em; line-height: 1.15em}/*27*/
+.f-XXL{font-size: 2.5714em; line-height: 1.12em}/*36*/
+.f-XXXL{font-size: 2.785em; line-height: 1em}/*39*/
+.f-XXXXL{font-size: 3.43em; line-height: .9em}/*48*/
 
 .f-light{color:rgba(0,0,0,.5);//color: #777}
 .f-dark{color:rgba(0,0,0,.25);//color: #333}
@@ -215,6 +216,7 @@ ul.menu-horizontal{
 ul.menu-horizontal li{
 	display: inline-block;
     //display:inline;
+    //position:relative;
     //zoom:1;
 	margin-right: .3em;
 	vertical-align: top;
@@ -225,9 +227,12 @@ ul.menu-horizontal li a{
 	padding: .2em .5em .25em;
 	vertical-align: top;
 }
-ul.menu-horizontal li span{
+ul.menu-horizontal li a span{
 	vertical-align: top;
+    border-bottom: 1px solid #fff;
 }
+
+ul.menu-horizontal li a span:hover{text-decoration:none; border:none;}
 
 pre, code, kbd, samp, .f-mono {
     font-family: Consolas, 'Droid Mono', 'courier new', 'courier', monospace, serif;
@@ -258,12 +263,13 @@ ins{
 	clear: both;
 	background: #333;
 	color: #fff;
-	padding: .2em .4em .3em;
+	padding: .3em .6em .4em;
 	text-decoration: none;
 	white-space: nowrap;
 }
 ins + ins{
-	margin-top: -.3em;
+	position:relative;
+	margin-top: -.2em;
 	padding-top: 0;
 }
 
@@ -659,6 +665,7 @@ All layers by default placed on 3 levels
         text-align: left!important;
 	}
 	.lt-800-hide{display:none!important}
+    .wrap{min-width: 0!important;}
     /* For short text lines */
         .f-short{font-size: 70%}
 	.c-, .-c, .-c- {padding-left:8px;padding-right:8px}
@@ -667,7 +674,7 @@ All layers by default placed on 3 levels
 
 /* Mobile phones, even most expensive ;) */
 @media only screen and (max-width: 480px){
-	.c, .lt-480 {
+	.c, .lt-480, .inset {
 		display:block !important;
 		float: none !important;
 		width: auto !important;

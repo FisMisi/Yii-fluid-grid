@@ -28,6 +28,7 @@ Used as content container, centered horizontally and having content width limit.
 </div>
 ...
 ```
+[See this example at jsFiddle](http://jsfiddle.net/velosipedistorg/j6UK6/)
 
 Then we shall mark-up `.wrap` blocks with columns.
 
@@ -46,7 +47,7 @@ Classes `.-c, .-c-, .c-` is used inside of column or just any container to speci
 `.clear` class used to "fix" floating elements heights, it has to be placed at the end of columns set.
 We can also use `.clearfix` class added to columns parent node if present.
 
-Now we can build example layout. Both column sets will give same result:
+Now we can build example layout. Both column sets will give [same result](http://jsfiddle.net/velosipedistorg/j6UK6/1/):
 
 ```html
 <!-- Using .clear element at the end of set -->
